@@ -3,33 +3,33 @@ package design
 type Operation interface {
 	GetResult() (result float64)
 }
-type OP struct {
-	Data []float64
-}
-
-func (o OP) GetResult() (result float64) {
-	return
-}
-
 type Add struct {
-	OP
 	Data []float64
 }
 type Muti struct {
-	OP
 	Data []float64
 }
 type Min struct {
-	OP
 	Data []float64
 }
 type Divi struct {
-	OP
 	Data []float64
 }
 
-func GetOP() OP {
-	return Add{}
+func GetOperation(what string, data []float64) Operation {
+	switch what {
+	case "add":
+		return Add{Data: data}
+	case "min":
+		return Min{Data: data}
+	case "muti":
+		return Muti{Data: data}
+	case "divi":
+		return Divi{Data: data}
+	default:
+		return Add{Data: []float64{1, 2, 3, 5}}
+
+	}
 }
 func (m Muti) GetResult() (result float64) {
 	result = 1
