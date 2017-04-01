@@ -6,7 +6,7 @@ import (
 
 func Test_operation(t *testing.T) {
 	var a []Operation
-	add := Add{Data: []float64{1, 4, 5, 7, 9, 12}}
+	add := Divi{Data: []float64{1, 4, 5, 7, 9, 12}}
 	a = append(a, add)
 	a = append(a, Min{Data: []float64{1, 3, 6, 9}})
 	a = append(a, Divi{Data: []float64{1, 3, 6, 9}})

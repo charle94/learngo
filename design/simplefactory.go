@@ -3,6 +3,14 @@ package design
 type Operation interface {
 	GetResult() (result float64)
 }
+type OP struct {
+	Data []float64
+}
+
+func (o OP) GetResult() (result float64) {
+	return
+}
+
 type Add struct {
 	Data []float64
 }
