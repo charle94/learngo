@@ -16,7 +16,7 @@ type Divi struct {
 	Data []float64
 }
 
-func GetOperation(what string, data []float64) Operation {
+func GetOperation(what string, data ...float64) Operation {
 	switch what {
 	case "add":
 		return Add{Data: data}
