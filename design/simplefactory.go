@@ -12,18 +12,25 @@ func (o OP) GetResult() (result float64) {
 }
 
 type Add struct {
+	OP
 	Data []float64
 }
 type Muti struct {
+	OP
 	Data []float64
 }
 type Min struct {
+	OP
 	Data []float64
 }
 type Divi struct {
+	OP
 	Data []float64
 }
 
+func GetOP() OP {
+	return Add{}
+}
 func (m Muti) GetResult() (result float64) {
 	result = 1
 	for _, v := range m.Data {
