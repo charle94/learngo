@@ -47,7 +47,6 @@ func (s SimpleFactory) GetLei(who string) LeiFeng {
 //将实例化移动到子类当中
 //更能好的方法应该是使用反射而不是使用case条件
 //工厂模式就是根据条件先获取到工厂再用工厂实例化相应的类
-//
 type LeiFactory interface {
 	CreateLei()
 }
