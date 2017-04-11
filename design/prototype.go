@@ -6,8 +6,7 @@ package design
 //知道创建的细节
 
 //copy 是一个复制函数通过序列化与反序列化进行深度的复制，
-//但是不知道为什么引用类型时两个结构体指向的地址不相同
-//所以在此处采用了直接赋值并修改Id的方法
+//深复制
 /*func Copy(dst, src interface{}) error {
 	var buf bytes.Buffer
 	if err := gob.NewEncoder(&buf).Encode(src); err != nil {
@@ -16,7 +15,7 @@ package design
 	return gob.NewDecoder(bytes.NewBuffer(buf.Bytes())).Decode(dst)
 }*/
 
-type Prototype interface {
+/*type Prototype interface {
 	Clone(Id int) Prototype
 }
 type hello struct {
@@ -29,8 +28,21 @@ type PrototypeInstance struct {
 
 func (p PrototypeInstance) Clone(Id int) PrototypeInstance {
 	var result PrototypeInstance
+	//浅复制
 	result = p
 	result.Id = Id
 	return result
 
+}
+*/
+type Resume struct {
+	Name     string
+	Age      int
+	WorkYear int
+	Company  string
+}
+
+func (r Resume) Clone() Resume {
+	result := r
+	return result
 }
