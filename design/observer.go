@@ -46,3 +46,7 @@ func (c ConcreteObserver) GetState() string {
 func (c ConcreteObserver) GetName() string {
 	return c.Name
 }
+
+//可以实例化多个实例但是统一由concretesubject来update
+//可以动态向update中注册方法，状态改变时调用update中的全部方法
+//称之为委托者模式
