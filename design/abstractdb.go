@@ -2,7 +2,6 @@ package design
 
 import (
 	"fmt"
-	"reflect"
 )
 
 type User interface {
@@ -62,7 +61,7 @@ func (s AccessUser) Get() int {
 }
 
 //创建访问user表对象的抽象的工厂方法
-/*type Factory interface {
+type Factory interface {
 	CreateUser() User
 	CreateDepartment() Department
 }
@@ -85,7 +84,8 @@ func (a AccessFactory) CreateUser() User {
 }
 func (a AccessFactory) CreateDepartment() Department {
 	return AccessDepartment{}
-}*/
+}
+
 /*type DataAccess interface {
 	CreateUser(which string) User
 	CreateDepartment(which string) Department
@@ -93,10 +93,9 @@ func (a AccessFactory) CreateDepartment() Department {
 type DataAccessInstace struct {
 }
 
-func (d DataAccessInstace) CreateUser(which string) User {
-	reflect.
+func (d DataAccessInstace) CreateUser(which interface{}) User {
+
 }
 func (d DataAccessInstace) CreateDepartment(which string) Department {
 
-}
-*/
+}*/
