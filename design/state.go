@@ -60,7 +60,7 @@ func (f ForeNoon) Write(w *Work) {
 		fmt.Println("当前工作状态良好")
 	} else {
 		w.S = Afternoon{}
-		w.S.Write(w)
+		w.S.Write(w) //要记得再次调用否则只达到改变状态的目的
 	}
 }
 
