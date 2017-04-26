@@ -12,7 +12,7 @@ func P(s string, n int) string {
 	return r
 }
 
-//将对象 组合成树形结构以表示部分整体的层次
+//组合模式将对象 组合成树形结构以表示部分整体的层次
 //结构，组合模式使得用户对单个对象和组合对象的使用具有一致性
 type Company interface {
 	Add(co Company)
