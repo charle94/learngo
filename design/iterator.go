@@ -6,6 +6,7 @@ package design
 
 //需要访问一个聚集对象，而不管这些对象是什么
 //都需要遍历的时候，应考虑使用迭代器模式
+//如果需要不同遍历方式可以创建不同的具体迭代器使其next和isdone方法改变
 type Iterator interface {
 	First() interface{}
 	Last() interface{}
