@@ -1,5 +1,9 @@
 package design
 
+import (
+	"errors"
+)
+
 type Operation interface {
 	GetResult() (result float64)
 }
@@ -57,4 +61,39 @@ func (d Divi) GetResult() (result float64) {
 		result = result / d.Data[i]
 	}
 	return
+}
+
+//
+var operationfactory = make(map[string]func(data ...float64) Operation)
+var oper = []string{"+", "-", "*"}
+
+func NewAdd(data ...float64) Operation {
+	return Add{Data: data}
+}
+func NewMin(data ...float64) Operation {
+	return Min{Data: data}
+}
+func NewMuti(data ...float64) Operation {
+	return Muti{Data: data}
+}
+func NewDivi(data ...float64) Operation {
+	return Divi{Data: data}
+}
+func NewOperation(o string, data ...float64) Operation {
+	_, ok := operationfactory[o]
+	if ok {
+		return operationfactory[o](data...)
+	} else {
+		panic(errors.New("该方法不存在"))
+	}
+}
+
+//可以达到动态注册的目的
+func RegisterFactory(o string, f func(data ...float64) Operation) {
+	operationfactory[o] = f
+}
+func init() {
+	RegisterFactory("+", NewAdd)
+	RegisterFactory("-", NewMin)
+	RegisterFactory("*", NewMuti)
 }

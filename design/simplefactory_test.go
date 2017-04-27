@@ -1,6 +1,7 @@
 package design
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -21,5 +22,20 @@ func Test_operation(t *testing.T) {
 			}
 		}
 	}
+}
 
+func Test_f(t *testing.T) {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+	RegisterFactory("/", NewDivi)
+	/*a := NewOperation("+", 1, 2, 3, 4)
+	m := NewOperation("-", 1, 2, 3, 4)
+	x := NewOperation("*", 1, 2, 3, 4)*/
+	c := NewOperation("/", 1, 2, 3, 4)
+	if c.GetResult() != 0.041666666666666664 {
+		t.Error("简单工厂化方法错误")
+	}
 }
