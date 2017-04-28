@@ -65,7 +65,6 @@ func (d Divi) GetResult() (result float64) {
 
 //
 var operationfactory = make(map[string]func(data ...float64) Operation)
-var oper = []string{"+", "-", "*"}
 
 func NewAdd(data ...float64) Operation {
 	return Add{Data: data}
