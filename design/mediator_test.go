@@ -15,5 +15,5 @@ func Test_me(t *testing.T) {
 	m.Add(c3)
 	m.Add(c4)
 	c1.Send("hello")
-	c2.Send("hi")
+	c2.Send("小花是谁")
 }
