@@ -8,6 +8,7 @@ import (
 //从而避免请求的发送者与接收者之间的耦合关系
 //将这个对象连成一条链，沿着该链传递请求，直到有一个对象处理他为止
 //可以将choice换成具体的request结构体中存储大量信息
+//感觉和状态模式有些相似
 type Handler interface {
 	HandleRequest(choice int)
 	SetSuccessor(s Handler)
